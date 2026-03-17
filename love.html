@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+
+    background:url("wife.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+/* Dark overlay so text is readable */
+
+body::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+    z-index:-1;
+}
+
+h1{
+    color:white;
+    font-size:40px;
+    animation: glow 2s infinite alternate;
+    max-width:700px;
+}
+
+.photo{
+    width:200px;
+    border-radius:20px;
+    margin-top:25px;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px white; }
+    to{ text-shadow:0 0 30px red; }
+}
+
+/* Heart */
+
+.heart{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:red;
+    transform:rotate(45deg);
+    animation: float 6s linear infinite;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:red;
+    border-radius:50%;
+}
+
+.heart::before{
+    top:-10px;
+}
+
+.heart::after{
+    left:-10px;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) rotate(45deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-10vh) rotate(45deg);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>
+To My Beautiful Wife ❤️ <br><br>
+Even when you are tired and angry,<br>
+You are still my favorite person in the world.
+</h1>
+
+<img src="anik  eva.jpg" class="photo">
+
+<script>
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random()*3 + 3 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
